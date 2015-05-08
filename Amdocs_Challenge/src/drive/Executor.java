@@ -21,6 +21,7 @@ public class Executor {
 		}
 		catch(Exception e)
 		{
+			System.out.println("Reached the end of the input file.");
 		}
 		
 	}
