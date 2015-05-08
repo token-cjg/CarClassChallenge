@@ -12,7 +12,7 @@ public class DriveTest {
 	@Test
 	public void testInitDirection()
 	{
-		car = Drive.Init(0, 3, "SOUTH");
+		car = Drive.Init(1, 3, "SOUTH");
 		assertEquals("SOUTH", car.Direction);
 	}
 	
@@ -35,20 +35,20 @@ public class DriveTest {
 	@Test
 	public void testForwardNorth()
 	{
-		car = Drive.Init(0, 0, "NORTH");
+		car = Drive.Init(1, 1, "NORTH");
 		assertEquals(1, Drive.Forward(car).Y);
 	}
 	
 	@Test
 	public void testForwardWest()
 	{
-		car = Drive.Init(4, 0, "WEST");
+		car = Drive.Init(4, 1, "WEST");
 		assertEquals(3, Drive.Forward(car).X);
 	}
 	@Test
 	public void testForwardSouth()
 	{
-		car = Drive.Init(0, 5, "SOUTH");
+		car = Drive.Init(1, 5, "SOUTH");
 		assertEquals(4, Drive.Forward(car).Y);
 	}
 	@Test
@@ -84,15 +84,15 @@ public class DriveTest {
 	@Test
 	public void testForwardAtBoundarySouth()
 	{
-		car = Drive.Init(3, 0, "SOUTH");
-		assertEquals(0, Drive.Forward(car).Y);
+		car = Drive.Init(3, 1, "SOUTH");
+		assertEquals(1, Drive.Forward(car).Y);
 	}
 	
 	@Test
 	public void testForwardAtBoundaryWest()
 	{
-		car = Drive.Init(0, 1, "WEST");
-		assertEquals(0, Drive.Forward(car).X);
+		car = Drive.Init(1, 1, "WEST");
+		assertEquals(1, Drive.Forward(car).X);
 	}
 	
 	@Test

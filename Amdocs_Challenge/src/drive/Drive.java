@@ -15,11 +15,11 @@ public class Drive {
 		{
 			car.Y += 1;
 		}
-		else if (direction.equals("SOUTH") && car.Y != 0)
+		else if (direction.equals("SOUTH") && car.Y != 1)
 		{
 			car.Y -= 1;
 		}
-		else if (direction.equals("WEST") && car.X != 0)
+		else if (direction.equals("WEST") && car.X != 1)
 		{
 			car.X -= 1;
 		}
