@@ -2,6 +2,8 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+import drive.Car;
+
 
 public class Program {
 	public static Car car = null;
