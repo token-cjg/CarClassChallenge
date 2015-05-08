@@ -12,7 +12,7 @@ public class Program {
 	
 	public static void ReadInputFile(String filename)
 	{
-		try(BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
+		try(BufferedReader br = new BufferedReader(new FileReader("../data/" + filename))) {
 	        StringBuilder sb = new StringBuilder();
 	        String line = br.readLine();
 	        
