@@ -7,12 +7,7 @@ import org.junit.Test;
 public class DriveTest {
 	Car car = null;
 	
-	@Test
-	public void testForwardFromNorth()
-	{
-		car = Drive.Init(0, 0, "NORTH");
-		assertEquals(1, Drive.Forward(car).Y);
-	}
+	// initialisation tests
 	
 	@Test
 	public void testInitDirection()
@@ -29,6 +24,41 @@ public class DriveTest {
 	}
 	
 	@Test
+	public void testInitY()
+	{
+		car = Drive.Init(5, 4, "WEST");
+		assertEquals(4, car.Y);
+	}
+	
+	// steering tests
+
+	@Test
+	public void testForwardNorth()
+	{
+		car = Drive.Init(0, 0, "NORTH");
+		assertEquals(1, Drive.Forward(car).Y);
+	}
+	
+	@Test
+	public void testForwardWest()
+	{
+		car = Drive.Init(4, 0, "WEST");
+		assertEquals(3, Drive.Forward(car).X);
+	}
+	@Test
+	public void testForwardSouth()
+	{
+		car = Drive.Init(0, 5, "SOUTH");
+		assertEquals(4, Drive.Forward(car).Y);
+	}
+	@Test
+	public void testForwardEast()
+	{
+		car = Drive.Init(3, 2, "EAST");
+		assertEquals(4, Drive.Forward(car).X);
+	}
+	
+	@Test
 	public void testTurnLeft()
 	{
 		car = Drive.Init(3, 5, "WEST");
@@ -42,6 +72,8 @@ public class DriveTest {
 		assertEquals("EAST", Drive.TurnRight(car).Direction);
 	}
 	
+	// boundary tests
+	
 	@Test
 	public void testForwardAtBoundaryEast()
 	{
@@ -54,5 +86,19 @@ public class DriveTest {
 	{
 		car = Drive.Init(3, 0, "SOUTH");
 		assertEquals(0, Drive.Forward(car).Y);
+	}
+	
+	@Test
+	public void testForwardAtBoundaryWest()
+	{
+		car = Drive.Init(0, 1, "WEST");
+		assertEquals(0, Drive.Forward(car).X);
+	}
+	
+	@Test
+	public void testForwardAtBoundaryNorth()
+	{
+		car = Drive.Init(3, 5, "NORTH");
+		assertEquals(5, Drive.Forward(car).Y);
 	}
 }
