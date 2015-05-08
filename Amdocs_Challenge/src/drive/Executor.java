@@ -8,8 +8,6 @@ public class Executor {
 	
 	public void ReadInputFile(String filename)
 	{
-		
-		
 		try(BufferedReader br = new BufferedReader(new FileReader("data/" + filename))) {
 	        String line = br.readLine();
 	        car = ProcessInput(line, car);
@@ -17,7 +15,6 @@ public class Executor {
 	            line = br.readLine();
 		        car = ProcessInput(line, car);
 	        }
-	        
 		}
 		catch(Exception e)
 		{
