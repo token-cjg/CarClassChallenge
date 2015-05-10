@@ -36,7 +36,7 @@ public class DriveTest {
 	public void testForwardNorth()
 	{
 		car = Drive.Init(1, 1, "NORTH");
-		assertEquals(1, Drive.Forward(car).Y);
+		assertEquals(2, Drive.Forward(car).Y);
 	}
 	
 	@Test
