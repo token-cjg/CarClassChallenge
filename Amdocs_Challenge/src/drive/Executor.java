@@ -1,25 +1,32 @@
 package drive;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 
 public class Executor {
 	Car car = null;
 	
-	public void ReadInputFile(String filename)
+	public void ReadInputFile(String filepath)
 	{
-		try(BufferedReader br = new BufferedReader(new FileReader("data/" + filename))) {
+		try(BufferedReader br = new BufferedReader(new FileReader(filepath))) {
 	        String line = br.readLine();
 	        car = ProcessInput(line, car);
-	        while (line != null && !line.isEmpty() ) {
+	        while (line != null) {
 	            line = br.readLine();
-		        car = ProcessInput(line, car);
+		        if (line != null)
+		        	car = ProcessInput(line, car);
 	        }
 		}
-		catch(Exception e)
-		{
-			System.out.println("Reached the end of the input file.");
-		}
+	    catch (FileNotFoundException fnfe)
+	    {
+	        System.out.println("File not found exception: " + fnfe.toString());
+	    }
+	    catch (IOException ioe)
+	    {
+	        System.out.println("I/O exception: " + ioe.toString());
+	    }
 		
 	}
 	
@@ -30,9 +37,10 @@ public class Executor {
 		{
 			String arguments = data.split("INIT")[1].trim();
 			String direction = arguments.split(",")[2];
+			int D = Direction.valueOf(direction).DirIndex();
 			int x = Integer.parseInt(arguments.split(",")[0]);
 			int y = Integer.parseInt(arguments.split(",")[1]);
-			car = Drive.Init(x, y, direction);
+			car = Drive.Init(x, y, D);
 		}
 		else if (data.contains("FORWARD"))
 		{

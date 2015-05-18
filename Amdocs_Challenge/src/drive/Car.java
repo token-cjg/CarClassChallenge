@@ -1,17 +1,18 @@
 package drive;
 
 
+
 public class Car {
-	public String Direction;
+
+	public int D;
 	public int X;
 	public int Y;
 	
-	public Car(int x, int y, String direction)
+	public Car(int x, int y, int dirIndex)
 	{
-		Direction = direction;
+		D = dirIndex;
 		X = x;
 		Y = y;
 	}
-	
 	
 }
