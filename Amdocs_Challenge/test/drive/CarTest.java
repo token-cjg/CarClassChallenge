@@ -12,7 +12,7 @@ public class CarTest {
 	public void testBuildDirection()
 	{
 		car = new Car(1, 3, 2);
-		assertEquals(2 % 4, car.D);
+		assertEquals(2, car.D);
 	}
 	
 	@Test

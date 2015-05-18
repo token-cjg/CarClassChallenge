@@ -13,7 +13,7 @@ public class DriveTest {
 	public void testInitDirection()
 	{
 		car = Drive.Init(1, 3, 2);
-		assertEquals(2 % 4, car.D);
+		assertEquals(2, car.D);
 	}
 	
 	@Test
@@ -62,14 +62,14 @@ public class DriveTest {
 	public void testTurnLeft()
 	{
 		car = Drive.Init(3, 5, 1);
-		assertEquals(2 % 4, Drive.TurnLeft(car).D);
+		assertEquals(2, Drive.TurnLeft(car).D);
 	}
 	
 	@Test
 	public void testTurnRight()
 	{
 		car = Drive.Init(2, 4, 0);
-		assertEquals(-1 % 4, Drive.TurnRight(car).D);
+		assertEquals(-1, Drive.TurnRight(car).D);
 	}
 	
 	// boundary tests
